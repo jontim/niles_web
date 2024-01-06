@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/media/favicon-48x48.png" type="image/png">
+
+    <!-- update the version number as needed -->
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+
+<!-- Add the Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+
+  </head>
+  <body>
+    <div id="loginStatus"></div>
+    <div id="publicContent">
+    <header>
+      <img src="MEDIA/NLI LOGO inline RGB.png" alt="Company Logo" id="company-logo">
+  </header>
+  <main>
+      <button id="loginButton">Log In </button><br><br>
+</div>
+
+<div id="privateContent" style="display: none;">
+    
+    <header>
+        <img src="MEDIA/NLI LOGO inline RGB.png" alt="Company Logo" id="company-logo">
+    </header>
+    <div class="radio-buttons">
+        <div class="radio-option">
+            <input type="radio" id="coaching" name="intent" value="1">
+            <label for="coaching">Get some help</label>
+        </div>
+        <div class="radio-option">
+            <input type="radio" id="feedback" name="intent" value="2">
+            <label for="feedback">Get some feedback on an approach you're considering</label>
+        </div>
+        <div class="radio-option">
+            <input type="radio" id="info" name="intent" value="3">
+            <label for="info">Get some advice</label>
+        </div>
+    </div>
+      <div id="hero-container">
+          <img src="MEDIA/Niles orange.png" alt="NILES" id="hero-image">
+          <video id="hero-video"></video>
+          <h1>Ask NILES</h1>
+      </div>
+      <input type="text" id="query-input" placeholder="What would you like to ask NILES?">
+      <button id="ask-button">Ask</button>
+      <div id="response-box"></div>
+</div>
+  <script defer src="app.js"></script>
+</body>   
+</html>

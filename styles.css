@@ -1,0 +1,110 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #023A7E;
+    background-color: white;
+}
+header {
+    text-align: left;
+    padding: 20px;
+}
+#company-logo {
+    max-width: 500px;
+}
+
+.radio-buttons {
+  display: inline-block;
+  margin-right: 20px; /* Adjust as needed */
+}
+
+.radio-option {
+    display: inline-block;
+    margin-right: 20px; /* Adjust as needed */
+}
+
+#hero-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+}
+#hero-image {
+    border-radius: 50%;
+    width: 10%;
+    display: block; /* Adjust this as necessary */
+    position: relative;
+    z-index: 1;
+}
+
+#hero-video {
+ position: absolute;
+ z-index: 2;
+ width: 10%;
+ border-radius: 50%;
+ display: none;
+}
+
+#query-input, #ask-button {
+    width: 50%;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#ask-button {
+    width: auto;
+    background-color: #0167B1;
+    color: white;
+}
+#loginButton {
+    width: auto;
+    background-color: #0167B1;
+    color: white;
+}
+
+#response-box {
+margin-top: 20px;
+height: 50vh;
+max-height: 500px;
+width: 75%;
+max-width: 55%;
+margin-left: auto; /* Centers the box horizontally */
+margin-right: auto; /* Centers the box horizontally */
+border: 1px solid #ccc;
+padding: 10px;
+overflow-y: auto;
+background-color: #f5f5f5;
+text-align: left;
+}
+
+@keyframes flash {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+#processing {
+    display: block;
+    font-size: 20px; /* Adjust to desired size */
+    color: #E96817; /* Adjust to desired color */
+    text-align: center;
+    font-style: italic;
+    animation: flash 1s linear infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #query-input, #ask-button {
+        width: 80%;
+    }
+}
+
+.separator {
+    width: 80%; /* Adjust to desired width */
+    height: 1px; /* Adjust to desired thickness */
+    background-color: #000; /* Adjust to desired color */
+    margin: 10px auto; /* Centers the line horizontally */
+}
