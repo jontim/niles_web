@@ -132,10 +132,10 @@ async function handleQuery(finalInput, assistantId, userInput1) {
        // Process and display the messages from OpenAI
 // Process and display the messages from OpenAI
 const messages = assistantMessages.map(message => {
-    // Split the text into lines based on punctuation, conjunctions, and dashes
-    const lines = message.content[0].text.value.split(/(?<!\d)[\.\,;:]\s+(?![A-Z]\b)|(?<=\s)-\s/);
+    // Split the text into lines based on periods, question marks, exclamation marks, colons, and dashes
+    const lines = message.content[0].text.value.split(/(?<!\d)[\.?!:]\s+(?![A-Z]\b)|(?<=\s)-\s/);
     // Join the lines with line breaks to format the text
-    const formattedText = lines.join('.<br>');
+    const formattedText = lines.join('<br>');
     return `NILES: ${formattedText}<br><div class="separator"></div>`;
 }).join('');
         
