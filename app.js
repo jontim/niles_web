@@ -36,7 +36,7 @@ app.post('/handle-query', async (req, res) => {
 
         // Polling for run completion and fetching messages
         let attempts = 0;
-        const maxAttempts = 20;
+        const maxAttempts = 50;
         let completed = false;
         let messagesData = [];
 
@@ -51,7 +51,7 @@ app.post('/handle-query', async (req, res) => {
                 console.log('Run status:', runStatus); // Log the run status
             } else {
                 // Wait for 1 second before the next polling attempt
-                await new Promise(resolve => setTimeout(resolve, 1000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
             }
             attempts++;
         }
