@@ -55,8 +55,8 @@ app.post('/handle-query', async (req, res) => {
             }
             attempts++;
         }
-
-        // Send the messages data back to the client
+        console.log('Messages Data:', messagesData); // Log the messages data
+       // Send the messages data back to the client
         res.json(messagesData);
     } catch (error) {
         console.error('Error:', error);
