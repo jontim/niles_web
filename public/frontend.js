@@ -112,29 +112,29 @@ async function handleQuery(finalInput, assistantId, userInput1) {
         responseBox.innerHTML += userQuery + `<span class="processing"><i id="processing">processing...</i></span><br>`;
 
         const response = await fetch('https://niles-nli-coachbot-39e5da7274f2.herokuapp.com/handle-query', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-         body: JSON.stringify({ message: finalInput })
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: finalInput })
         }).catch(error => console.error('Fetch Error:', error));
-       
-
+        
+        console.log(response); // Log the response before parsing it as JSON
+        
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-
+        
         const data = await response.json(); // Parse the response data as JSON
-        console.log(data)
+        console.log(data); // Log the data before filtering it
+        
         // Filter out the assistant's messages
         const assistantMessages = data.filter(message => message.role === 'assistant');
-        console.log(assistantMessages)
-        
-       // Process and display the messages from OpenAI
-// Process and display the messages from OpenAI
+        console.log(assistantMessages);       // Process and display the messages from OpenAI
+// Process and display th messages from OpenAI
 const messages = assistantMessages.map(message => {
     // Split the text into lines based on periods, question marks, exclamation marks, colons, and dashes
-    const lines = message.content[0].text.value.split(/(?<!\d)[\.?!:]\s+(?![A-Z]\b)|(?<=\s)-\s/);
+    const lines = message.ceontent[0].text.value.split(/(?<!\d)[\.?!:]\s+(?![A-Z]\b)|(?<=\s)-\s/);
     // Join the lines with line breaks to format the text
     const formattedText = lines.join('<br>');
     return `NILES: ${formattedText}<br><div class="separator"></div>`;
