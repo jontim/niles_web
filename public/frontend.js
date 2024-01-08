@@ -43,8 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.getElementById('loginButton');
     loginButton?.addEventListener('click', googleLogin);
 
-    const askButton = document.getElementById('ask-button');
-    askButton?.addEventListener('click', handleAskButtonClick);
+
 });
 
 // Video Handling Logic
@@ -65,8 +64,9 @@ const videos = [
 const specificVideo = 'MEDIA/Niles joke 1_1.webm';
 let clickCount = 0;
 
-// Handle Ask Button Click
-async function handleAskButtonClick() {
+
+
+document.getElementById('ask-button').addEventListener('click', async () => {
     const selectedValue = document.querySelector('input[name="intent"]:checked').value;
     let userInput1 = document.getElementById('query-input').value.trim();
     let finalInput = userInput1;
@@ -101,9 +101,9 @@ async function handleAskButtonClick() {
             await handleQuery(finalInput, assistantId, userInput1);  // Pass userInput1 as the second argument
         } catch (error) {
             console.error('Error:', error);
-}
         }
     }
+});
 
 async function handleQuery(finalInput, assistantId, userInput1) {
     try {
@@ -116,7 +116,7 @@ async function handleQuery(finalInput, assistantId, userInput1) {
         headers: {
             'Content-Type': 'application/json'
         },
-         body: JSON.stringify({ message: userMessage })
+         body: JSON.stringify({ message: finalInput })
         }).catch(error => console.error('Fetch Error:', error));
        
 

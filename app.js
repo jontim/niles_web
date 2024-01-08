@@ -13,9 +13,9 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const axios = require('axios');
 
 app.post('/handle-query', async (req, res) => {
-    const { userInput, assistantId } = req.body; // Extract assistantId from the request body
-    console.log('Received user input:', userInput); // Log the user input
-    if (!userInput) {
+    const { message } = req.body; // Extract message from the request body
+    console.log('Received user input:', message); // Log the user input
+    if (!message) {
         return res.status(400).json({ error: "User input is required" });
     }
 
@@ -24,13 +24,15 @@ app.post('/handle-query', async (req, res) => {
         console.log('Created thread:', thread); // Log the created thread
         await openai.beta.threads.messages.create(thread.id, {
             role: "user",
-            content: userInput
+            content: message
         });
 
-        const assistant = await openai.beta.assistants.retrieve(assistantId); // Use the received assistantId
+        const assistantId = 'asst_1hFKjYV5WjzaoVPIsCwfuPMK'; // Use a fixed assistantId
+        const assistant = await openai.beta.assistants.retrieve(assistantId);
         console.log('Retrieved assistant:', assistant); // Log the retrieved assistant
         const run = await openai.beta.threads.runs.create(thread.id, { assistant_id: assistant.id });
         console.log('Created run:', run); // Log the created run
+
 
         // Polling for run completion and fetching messages
         let attempts = 0;
