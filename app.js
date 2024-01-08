@@ -1,7 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const OpenAI = require('openai');
-require('dotenv').config();
 const path = require('path');
 
 const app = express();
@@ -10,6 +10,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const axios = require('axios');
 
 app.post('/handle-query', async (req, res) => {
     const { userInput, assistantId } = req.body; // Extract assistantId from the request body
@@ -60,6 +61,11 @@ app.post('/handle-query', async (req, res) => {
         // Send the error back to the client
         res.status(500).json({ error: error.toString() });
     }
+});
+
+app.use((err, req, res, next) => {
+    console.error(err.stack); // Log error stack trace
+    next(err); // Pass the error to the next middleware
 });
 
 const PORT = process.env.PORT || 3000;
