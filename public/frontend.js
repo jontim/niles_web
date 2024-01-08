@@ -105,7 +105,7 @@ document.getElementById('ask-button').addEventListener('click', async () => {
     }
 });
 
-async function handleQuery(finalInput, assistantId, userInput1) {
+    async function handleQuery(finalInput, assistantId, userInput1) {
     try {
         const responseBox = document.getElementById('response-box');
         const userQuery = userInput1 ? `You: ${userInput1}<br><div class="separator"></div>` : '';
@@ -116,7 +116,7 @@ async function handleQuery(finalInput, assistantId, userInput1) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ message: finalInput })
+            body: JSON.stringify({ message: finalInput, assistantId: assistantId })
         }).catch(error => console.error('Fetch Error:', error));
         
         console.log(response); // Log the response before parsing it as JSON
