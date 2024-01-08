@@ -5,6 +5,7 @@ body {
     padding: 0;
     color: #023A7E;
     background-color: white;
+    overflow-y: auto; 
 }
 header {
     text-align: left;
