@@ -129,12 +129,14 @@ async function handleQuery(finalInput, assistantId, userInput1) {
         // Filter out the assistant's messages
         const assistantMessages = data.filter(message => message.role === 'assistant');
         
-        // Process and display the messages from OpenAI
-        const messages = assistantMessages.map(message => {
-            // Replace periods with line breaks to format the text
-            const formattedText = message.content[0].text.value.replace(/\./g, '.<br>');
-            return `NILES: ${formattedText}<br><div class="separator"></div>`;
-        }).join('');
+       // Process and display the messages from OpenAI
+const messages = assistantMessages.map(message => {
+         // Split the text into lines based on punctuation and conjunctions
+        const lines = message.content[0].text.value.split(/(?<!\d)[\.\,;:]\s+(?=[A-Z])/);
+         // Join the lines with line breaks to format the text
+        const formattedText = lines.join('.<br>');
+        return `NILES: ${formattedText}<br><div class="separator"></div>`;
+}).join('');
         
         // Remove the "processing..." message
         document.getElementById('processing').remove();
