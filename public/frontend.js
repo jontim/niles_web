@@ -125,9 +125,10 @@ async function handleQuery(finalInput, assistantId, userInput1) {
         }
 
         const data = await response.json(); // Parse the response data as JSON
-
+        console.log(data)
         // Filter out the assistant's messages
         const assistantMessages = data.filter(message => message.role === 'assistant');
+        console.log(assistantMessages)
         
        // Process and display the messages from OpenAI
 // Process and display the messages from OpenAI
@@ -138,7 +139,7 @@ const messages = assistantMessages.map(message => {
     const formattedText = lines.join('<br>');
     return `NILES: ${formattedText}<br><div class="separator"></div>`;
 }).join('');
-        
+    console.log(messages)    
         // Remove the "processing..." message
         document.getElementById('processing').remove();
         
