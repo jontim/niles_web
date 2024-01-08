@@ -111,10 +111,12 @@ async function handleQuery(finalInput, assistantId, userInput1) {
         const userQuery = userInput1 ? `You: ${userInput1}<br><div class="separator"></div>` : '';
         responseBox.innerHTML += userQuery + `<span class="processing"><i id="processing">processing...</i></span><br>`;
 
-        const response = await fetch('http://jontmartin.com/handle-query', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userInput: finalInput, assistantId }) // Send assistantId to the server
+        const response = await fetch('https://niles-nli-coachbot-39e5da7274f2.herokuapp.com/handle-query', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+         body: JSON.stringify({ message: userMessage })
         }).catch(error => console.error('Fetch Error:', error));
        
 
