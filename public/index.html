@@ -1,63 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <title>Welcome to NILES</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="/media/favicon-48x48.png" type="image/png">
+    <link rel="icon" href="favicon-48x48.png" type="image/png">
+    <audio id="buttonSound" src="mouse-click.wav" preload="auto"></audio>
 
-    <!-- update the version number as needed -->
-   <!-- The core Firebase JS SDK is always required and must be listed first -->
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-
-<!-- Add the Firebase products that you want to use -->
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-
-
   </head>
   <body>
-    <div id="loginStatus"></div>
-    <div id="publicContent">
+    <div id="loginStatus"> </div>
+<div id="publicContent">
     <header>
-      <img src="MEDIA/NLI LOGO inline RGB.png" alt="Company Logo" id="company-logo">
-  </header>
-  <main>
-      <button id="loginButton">Log In </button><br><br>
-</div>
-
-<div id="privateContent" style="display: none;">
-    
-    <header>
-        <img src="MEDIA/NLI LOGO inline RGB.png" alt="Company Logo" id="company-logo">
+      <img src="NLI LOGO inline RGB.png" alt="Company Logo" id="company-logo">
     </header>
-    <div class="radio-buttons">
-        <div class="radio-option">
-            <input type="radio" id="coaching" name="intent" value="1">
-            <label for="coaching">Get some help</label>
+      <button id="loginButton">Log In</button>
+</div>
+    <br><br>
+<div id="privateContent" style="display: none;"> -->
+      <header>
+        <img src="NLI LOGO inline RGB.png" alt="Company Logo" id="company-logo">
+      </header>
+      
+      
+  <div><p>What support do you want from NILES today?</p></div>
+      
+ 
+  <div class="button-container">
+          <button class="circle-button" id="coachingButton" data-value= "1" title="NILES will ask you questions to help you generate new insights about an existing challenge you haven't solved yet, or alternatively you can prompt NILES with 'can I get some feedbacK about [insert what you're thinking of doing]' and NILES will give you feedback on the approach.">Get Coaching</button>
+          <button class="circle-button" id="questionButton" data-value= "2" title="Ask NILES about anything related to leadership - it could be advice on an approach, it could be about LEAD content you're grappling with, or it could be about anything to do with the neuroscience of leadership.">Ask Leadership Questions</button>
+          <button class="circle-button" id="practiceButton" data-value="3" title="NILES will help you practice any skill from LEAD or help you implement any of frameworks you've learned about. Just tell NILES in your question what the skill is and it will recommend the best practice strategy, and with your agreement, implement that strategy.">Practice a Skill</button>
+          
+  </div>
+  
+  
+  <div class="card">
+    <div class="card__side card__side--front">
+        <div id="hero-container">
+            <img src="NILES_Logo_Inline.png" alt="NILES" id="hero-image">
         </div>
-        <div class="radio-option">
-            <input type="radio" id="feedback" name="intent" value="2">
-            <label for="feedback">Get some feedback on an approach you're considering</label>
+        <div id="user-query-container"> 
+            <h1><i>Tell NILES what you'd like to do today.</i></h1>
+            <input type="text" id="query-input" placeholder="What would you like NILES' help with?"/>
+            <button id="ask-button" style="color: #0096DE; color: white;">Ask</button>
+            <div><i style= "color:gray; font-size: 16px;">Please keep in mind that NILES is still learning. Make sure you use common sense and double check your data for big decisions.</i></div>
         </div>
-        <div class="radio-option">
-            <input type="radio" id="info" name="intent" value="3">
-            <label for="info">Get some advice</label>
+        <div id="response-box">
+          <div id="processing" style="display: none;">Processing...</div>
+        </div>
         </div>
     </div>
-      <div id="hero-container">
-          <img src="MEDIA/Niles orange.png" alt="NILES" id="hero-image">
-          <video id="hero-video"></video>
-          <h1>Ask NILES</h1>
-      </div>
-      <input type="text" id="query-input" placeholder="What would you like to ask NILES?">
-      <button id="ask-button">Ask</button>
-      <div id="response-box"></div>
+    <div class="card__side card__side--back">
+        <img src="NLI LOGO inline White (1).png" alt="NLI Logo white" id="logo-blanco">
+    </div>
 </div>
-  <script defer src="frontend.js"></script>
+</div>
+  <script src="frontendworks.js"></script>
 </body>   
 </html>
